@@ -4,6 +4,7 @@ namespace App\Models\Traits;
 
 use Illuminate\Support\Str;
 
+//auto uuid
 trait HasUuid
 {
     protected static function bootHasUuid()

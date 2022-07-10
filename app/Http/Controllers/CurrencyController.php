@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\CurrencyService;
 
 class CurrencyController extends Controller
 {
-    public function index()
+
+    public function __construct(CurrencyService $currencyService)
     {
-        return view('currency.index');
+        $this->currencyService = $currencyService;
     }
 
-    
+    public function index()
+    {
+        $allCurrencies = $this->currencyService->getAllCurrency();
+
+        return view('currency.index', compact('allCurrencies'));
+    }
+   
 }
